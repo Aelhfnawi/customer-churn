@@ -1,76 +1,77 @@
-Customer Churn Prediction
-This repository contains a machine learning project focused on predicting customer churn using a comprehensive dataset. The goal is to build a robust model that can identify customers at risk of churning, allowing businesses to implement proactive retention strategies.
+🔮 Customer Churn Prediction
+Can we predict who's about to leave before they actually do? This project says: Yes! 🚀
+We built a Customer Churn Prediction pipeline that dives into data, battles imbalance 🥊, and optimizes metrics that matter most — precision 🎯 & recall 🔍.
 
-Dataset
-The project uses the customer_churn_dataset-training-master.csv dataset, which contains various features related to customer behavior and demographics. The key features include:
+Big thanks to Uneeq Interns 💼 for the opportunity to bring this to life!
 
-CustomerID: Unique identifier for each customer.
+📊 Project Overview
+From raw CSVs 📂 to actionable insights 📈 — this notebook takes you through:
 
-Age: Customer's age.
+🧹 Data cleaning & preprocessing
 
-Gender: Customer's gender.
+🕵️ Exploratory Data Analysis (EDA)
 
-Tenure: Duration of the customer's subscription.
+⚖️ Handling imbalanced classes with SMOTE & undersampling
 
-Usage Frequency: How often the customer uses the service.
+🤖 Training multiple models (LogisticRegression, RandomForestClassifier, XGBClassifier)
 
-Support Calls: Number of times the customer has contacted support.
+🧮 Evaluating with precision, recall, F1-score, ROC AUC
 
-Payment Delay: The average delay in days for payments.
+📂 Dataset
+/kaggle/input/customer-churn-train-test/customer_churn_dataset-training-master.csv
 
-Subscription Type: The type of subscription (e.g., Standard, Basic).
+/kaggle/input/customer-churn-train-test/customer_churn_dataset-testing-master.csv
 
-Contract Length: The duration of the customer's contract (e.g., Monthly, Annual).
+🛠️ Tech Stack
+Languages & Libraries:
 
-Total Spend: The total amount the customer has spent.
+from imblearn.over_sampling import SMOTE
 
-Last Interaction: Days since the last interaction with the service.
+from imblearn.under_sampling import RandomUnderSampler
 
-Churn: The target variable, indicating whether the customer has churned (1) or not (0).
+from sklearn.ensemble import RandomForestClassifier
 
-Methodology
-The Jupyter notebook customer-churn.ipynb follows a standard machine learning pipeline:
+from sklearn.linear_model import LogisticRegression
 
-Data Loading and Exploration: The process begins with loading the training and testing datasets and performing an initial analysis to understand the data's shape, column types, missing values, and the distribution of the target variable.
+from sklearn.metrics import (classification_report, confusion_matrix,
 
-Data Preprocessing: This step handles data cleaning and feature engineering. It includes:
+from sklearn.metrics import auc
 
-Missing Value Handling: Rows with missing values are dropped.
+from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV
 
-Categorical Encoding: Categorical features like Gender, Subscription Type, and Contract Length are converted into numerical representations using LabelEncoder.
+from sklearn.preprocessing import StandardScaler, LabelEncoder
 
-Feature Scaling: Numerical features are scaled using StandardScaler to ensure they contribute equally to the model.
+import matplotlib.pyplot as plt
 
-Model Training: The notebook uses a variety of machine learning models to predict churn. The models are trained and evaluated on the preprocessed data.
+import numpy as np
 
-Model Evaluation: The performance of the models is evaluated using a range of metrics, including a classification report, confusion matrix, precision-recall curve, F1 score, and ROC AUC score.
+import pandas as pd
 
-Hyperparameter Tuning: To optimize model performance, hyperparameter tuning is performed using GridSearchCV.
+import seaborn as sns
 
-Feature Importance Analysis: The project uses SHAP (SHapley Additive exPlanations) to understand which features are most influential in the model's predictions. This provides valuable insights into the key drivers of customer churn.
+import shap
 
-Project Structure
-customer-churn.ipynb: The main Jupyter notebook containing the full analysis and model pipeline.
+import warnings
 
-customer_churn_dataset-training-master.csv: The training dataset used in this project.
+import xgboost as xgb
 
-customer_churn_dataset-testing-master.csv: The testing dataset used to evaluate the model's performance.
+🧠 Models Trained
+LogisticRegression 🤖
 
-Requirements
-The following Python libraries are required to run the notebook:
+RandomForestClassifier 🤖
 
-pandas
+XGBClassifier 🤖
 
-numpy
+📈 Results
+See the notebook for:
 
-matplotlib
+Confusion Matrix 🌀
 
-seaborn
+Classification Report 📜
 
-scikit-learn
+ROC Curve 📊
 
-imblearn (for handling imbalanced data)
+Precision & Recall scores 📌
 
-xgboost
-
-shap
+🙏 Acknowledgements
+Special thanks to Uneeq Interns 💼 for the mentorship and guidance!
